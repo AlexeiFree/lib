@@ -1,0 +1,27 @@
+{
+  "name": "@my-lib/components",
+  "version": "0.0.0",
+  "publishConfig": {
+    "registry": "https://artifactory.my-company.ru/artifactory/api/npm/npm-mymy-company-web-npm-local/"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=12.2.13 <15",
+    "@angular/core": ">=12.2.13 <15",
+    "@my-lib/common": "0.0.44",
+    "@my-company-ds/core": "^0.1.2",
+    "@my-company-ds/base": "^3.0.0"
+  },
+  "exports": {
+    "./buttons": {
+      "sass": "./buttons/src/lib/prerender.scss",
+      "default": "./esm2015/buttons/my-lib-components-buttons.js"
+    },
+    "./spinner": {
+      "sass": "./spinner/src/lib/prerender.scss",
+      "default": "./esm2015/spinner/my-lib-components-spinner.js"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "@my-lib/common",
+  "version": "0.0.44",
+  "publishConfig": {
+    "registry": "https://artifactory.my-company.ru/artifactory/api/npm/npm-mymy-company-web-npm-local/"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=12.2.13 <15",
+    "@angular/core": ">=12.2.13 <15",
+    "rxjs": "^6.5.5 || ^7.0.1"
+  },
+  "exports": {
+    "./pipes": "./esm2015/pipes/my-lib-common-pipes.js",
+  }
+}

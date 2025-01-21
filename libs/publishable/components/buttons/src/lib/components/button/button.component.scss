@@ -1,0 +1,34 @@
+@use '~@my-lib/common/styles/mixins';
+@use '../../styles/mixins' as button-mixins;
+
+@include mixins.host('.my-lib-button-host') {
+  @include button-mixins.button-host;
+
+  --text-padding-x: 8px;
+
+  &[size='xs'],
+  &[size='s'] {
+    --text-padding-x: 4px;
+  }
+}
+
+.my-lib-button {
+  &__icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    mask: var(--icon-url) center no-repeat;
+    mask-size: var(--icon-mask-size);
+    background: currentColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    padding: 0 var(--text-padding-x);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

@@ -1,0 +1,16 @@
+@mixin button-host {
+  --icon-size: 24px;
+
+  max-width: 100%;
+  pointer-events: none;
+  display: inline-block;
+
+  &[size='xs'],
+  &[size='s'] {
+    --icon-size: 16px;
+  }
+
+  &[fluid]:not([fluid='false']) {
+    width: 100%;
+  }
+}

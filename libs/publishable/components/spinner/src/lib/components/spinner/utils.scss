@@ -1,0 +1,12 @@
+@use 'sass:math';
+
+@function gradient($color) {
+  @return conic-gradient(from 90deg, transparent 0 0, $color 330deg, transparent 347deg 360deg);
+}
+
+@function get-mask($mask-radius, $mask-stroke-width) {
+  $mask-size: $mask-radius * 2 + $mask-stroke-width;
+  $center: math.div($mask-size, 2);
+
+  @return url('data:image/svg+xml;utf8,<svg viewBox="0 0 #{$mask-size $mask-size}" xmlns="http://www.w3.org/2000/svg"><circle cx="#{$center}" cy="#{$center}" r="#{$mask-radius}" fill="none" stroke="black" stroke-width="#{$mask-stroke-width}" stroke-dasharray="#{$mask-radius * 5.6}" stroke-dashoffset="0" stroke-linecap="round" /></svg>');
+}

@@ -1,0 +1,249 @@
+@use '~@my-lib/common/styles/functions';
+@use '~@my-lib/common/styles/mixins';
+
+$sizes: xs s m l xl;
+
+@function get-mask-size($size) {
+  @return functions.get-breakpoint-var(button__icon_size_, $sizes, $size, auto);
+}
+
+:host {
+  display: contents;
+  pointer-events: none;
+}
+
+.my-lib-button-container {
+  $self: &;
+  @include mixins.typing(C1-BOLD-UPP-WIDE);
+
+  --padding-x: 10px;
+  --padding-y: 10px;
+  --spinner-size: 24px;
+  --height: 44px;
+  --icon-mask-size: #{get-mask-size(m)};
+  --scale: 1;
+  --press-scale: 0.9545;
+  --transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+
+  color: inherit;
+  background: inherit;
+  margin: inherit;
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+
+  &_fluid {
+    width: 100%;
+  }
+
+  &:not(&_disabled):not(&_loading) {
+    ::ng-deep & {
+      a,
+      button {
+        &:focus-visible {
+          outline: 1px solid var(--color-accent-active);
+          outline-offset: 1px;
+        }
+
+        &:active,
+        &.active {
+          --scale: var(--press-scale);
+        }
+
+        @media (hover: hover) {
+          &:hover::before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &_size {
+    &_xs {
+      @include mixins.typing(C2-BOLD-UPP-WIDE);
+
+      --padding-x: 4px;
+      --padding-y: 4px;
+      --spinner-size: 16px;
+      --height: 24px;
+      --icon-mask-size: #{get-mask-size(xs)};
+      --border-radius: 8px;
+      --press-scale: 0.9167;
+    }
+
+    &_s {
+      @include mixins.typing(C2-BOLD-UPP-WIDE);
+
+      --padding-x: 8px;
+      --padding-y: 6px;
+      --spinner-size: 16px;
+      --height: 32px;
+      --icon-mask-size: #{get-mask-size(s)};
+      --border-radius: 12px;
+      --press-scale: 0.9375;
+    }
+
+    &_l {
+      @include mixins.typing(C1-BOLD-UPP-WIDE);
+
+      --icon-mask-size: #{get-mask-size(l)};
+      --padding-x: 14px;
+      --padding-y: 14px;
+      --height: 52px;
+      --press-scale: 0.9615;
+    }
+
+    &_xl {
+      @include mixins.typing(P4-BOLD-UPP-WIDE);
+
+      --icon-mask-size: #{get-mask-size(xl)};
+      --padding-x: 24px;
+      --padding-y: 24px;
+      --height: 72px;
+      --border-radius: 20px;
+      --press-scale: 0.9722;
+
+      font: 500 1.25rem / 1.5rem 'my-company Compact', sans-serif;
+    }
+  }
+
+  &__content {
+    ::ng-deep {
+      button,
+      a {
+        @include mixins.button-reset;
+
+        --padding-without-border: calc(var(--button-container-padding) - 1px);
+        position: relative;
+        background: var(--button__background, var(--background));
+        box-sizing: border-box;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--button__border_color, transparent);
+        border-radius: var(--border-radius, 16px);
+        padding: var(--padding-without-border, calc(var(--padding-y) - 1px) calc(var(--padding-x) - 1px));
+        width: 100%;
+        height: var(--height);
+        transform: scale3d(var(--scale), var(--scale), 1);
+        transition: var(--transition);
+        user-select: none;
+        white-space: nowrap;
+        pointer-events: auto;
+        -webkit-tap-highlight-color: transparent;
+
+        #{$self}_color_primary & {
+          --color-hover-overlay: var(--color-control-hover-primary);
+          --button-blend-hover: var(--blend-control-hover-primary);
+          --color: var(--color-constant-greyscale-0);
+          --background: var(--color-control-primary-active);
+        }
+
+        #{$self}_color_ghost & {
+          --color-hover-overlay: var(--color-background-hover);
+          --button-blend-hover: var(--blend-background-hover);
+          --color: var(--color-text-primary);
+          --background: transparent;
+        }
+
+        #{$self}_color_secondary & {
+          --color-hover-overlay: var(--color-background-hover);
+          --button-blend-hover: var(--blend-background-hover);
+          --color: var(--color-text-primary);
+          --background: var(--color-control-tertiary-active);
+        }
+
+        #{$self}_color_alternative & {
+          --color-hover-overlay: var(--color-control-hover-alternative);
+          --color: var(--color-text-inverted);
+          --background: var(--color-control-secondary-active);
+        }
+
+        #{$self}_color_always-white & {
+          --color-hover-overlay: var(--color-control-hover-primary);
+          --button-blend-hover: var(--blend-control-hover-primary);
+          --color: var(--color-constant-greyscale-800);
+          --background: var(--color-constant-greyscale-0);
+        }
+
+        #{$self}_color_negative & {
+          --color-hover-overlay: var(--color-background-hover);
+          --button-blend-hover: var(--blend-background-hover);
+          --color: var(--color-text-negative);
+          --background: var(--color-control-tertiary-active);
+        }
+
+        #{$self}_color_blur & {
+          --color-hover-overlay: var(--color-background-hover);
+          --button-blend-hover: var(--blend-background-hover);
+          --color: var(--color-constant-greyscale-0);
+          --background: var(--color-control-blur);
+
+          backdrop-filter: blur(20px);
+        }
+
+        #{$self}_outer-background_grey {
+          #{$self}_color_secondary &,
+          #{$self}_color_negative & {
+            --background: var(--color-control-alternative);
+          }
+        }
+
+        &,
+        &:hover {
+          color: var(--button__text_color, var(--color));
+          text-decoration: none;
+        }
+
+        #{$self}_loading > &,
+        #{$self}_disabled > & {
+          &,
+          &::after {
+            cursor: not-allowed;
+          }
+        }
+
+        #{$self}_disabled > & {
+          --color: var(--color-text-tertiary);
+          --background: var(--color-control-inactive);
+
+          opacity: 0.6;
+        }
+
+        #{$self}_loading > & > * {
+          opacity: 0;
+        }
+
+        &::before {
+          @include mixins.inset(-1px);
+
+          content: '';
+          position: absolute;
+          pointer-events: none;
+          z-index: -1;
+          border: 1px solid transparent;
+          border-radius: inherit;
+          background: var(--button__overlay_color, var(--color-hover-overlay));
+          mix-blend-mode: var(--button-blend-hover);
+          transition: var(--transition);
+          opacity: 0;
+        }
+
+        &::after {
+          @include mixins.min-tap-area;
+        }
+      }
+    }
+  }
+
+  &__spinner {
+    --offset: calc(var(--spinner-size) / -2);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(var(--offset), var(--offset));
+  }
+}
