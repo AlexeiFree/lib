@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2019", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@my-lib/common": ["libs/publishable/common/src/public_api"],
+      "@my-lib/common/*": ["libs/publishable/common/*/src/public_api"],
+      "@my-lib/components": ["libs/publishable/components/src/public_api"],
+      "@my-lib/components/*": ["libs/publishable/components/*/src/public_api"],
+      "@storybook-common/*": ["libs/storybook-host/src/common/*"]
+    },
+    "typeRoots": ["typings"]
+  },
+  "exclude": ["node_modules", "tmp"]
+}
