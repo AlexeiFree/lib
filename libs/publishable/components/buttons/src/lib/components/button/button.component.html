@@ -1,11 +1,11 @@
-<my-lib-link-button *ngIf="href; else buttonTemplate" [props]="this">
+<mm-web-link-button *ngIf="href; else buttonTemplate" [props]="this">
   <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
-</my-lib-link-button>
+</mm-web-link-button>
 
 <ng-template #buttonTemplate>
-  <my-lib-action-button [props]="this">
+  <mm-web-action-button [props]="this">
     <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
-  </my-lib-action-button>
+  </mm-web-action-button>
 </ng-template>
 
 <ng-template #contentTemplate>
@@ -13,7 +13,7 @@
     <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
   </ng-container>
   <ng-container>
-    <span class="my-lib-button__text">{{ text }}</span>
+    <span class="mm-web-button__text">{{ text }}</span>
   </ng-container>
   <ng-container *ngIf="iconPosition === 'trailing'">
     <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
@@ -22,7 +22,7 @@
 <ng-template #iconTemplate>
   <div
     *ngIf="iconSrc"
-    class="my-lib-button__icon"
+    class="mm-web-button__icon"
     [style.--icon-url]="iconSrc | mmWebCssUrl"
   ></div>
 </ng-template>

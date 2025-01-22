@@ -1,11 +1,10 @@
 import { Directive, HostBinding, Input } from '@angular/core';
 
-import type { AnchorElementTarget } from '@my-lib/common/types';
-import type { SpinnerType } from '@my-lib/components/spinner';
+import type { AnchorElementTarget } from '@mm-web/common/types';
+import type { SpinnerType } from '@mm-web/components/spinner';
 
 import type { ButtonColor, ButtonOuterBackground, ButtonProps, ButtonSize } from '../../types';
 import { ButtonType } from '../../types';
-import { isButtonLoading } from '../../utils';
 
 @Directive()
 export class ButtonBaseDirective implements ButtonProps {
@@ -70,8 +69,4 @@ export class ButtonBaseDirective implements ButtonProps {
    * @default 'button'.
    */
   @Input() public type?: ButtonType;
-
-  public get isLoading(): boolean {
-    return isButtonLoading(this);
-  }
 }

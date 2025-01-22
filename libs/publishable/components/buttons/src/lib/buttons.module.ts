@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { CssUrlModule } from '@my-lib/common/pipes';
-import { SpinnerModule } from '@my-lib/components/spinner';
+import { CssUrlModule } from '@mm-web/common/pipes';
+import { SpinnerModule } from '@mm-web/components/spinner';
 
 import {
   ActionButtonComponent,

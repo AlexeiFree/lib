@@ -4,7 +4,7 @@ import type { ActionButtonProps } from '../../types';
 import { isButtonBlocked } from '../../utils';
 
 @Component({
-  selector: 'my-lib-action-button',
+  selector: 'mm-web-action-button',
   templateUrl: './action-button.component.html',
   styleUrls: ['./action-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

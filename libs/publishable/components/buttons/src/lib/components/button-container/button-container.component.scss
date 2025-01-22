@@ -1,5 +1,5 @@
-@use '~@my-lib/common/styles/functions';
-@use '~@my-lib/common/styles/mixins';
+@use '~@mm-web/common/styles/functions';
+@use '~@mm-web/common/styles/mixins';
 
 $sizes: xs s m l xl;
 
@@ -12,7 +12,7 @@ $sizes: xs s m l xl;
   pointer-events: none;
 }
 
-.my-lib-button-container {
+.mm-web-button-container {
   $self: &;
   @include mixins.typing('C1 BOLD UPP WIDE');
 
@@ -114,7 +114,7 @@ $sizes: xs s m l xl;
 
         --padding-without-border: calc(var(--button-container-padding) - 1px);
         position: relative;
-        background: var(--button__background, var(--background));
+        background: var(--button_background, var(--background));
         box-sizing: border-box;
         display: inline-flex;
         justify-content: center;

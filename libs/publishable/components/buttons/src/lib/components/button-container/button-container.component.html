@@ -1,22 +1,27 @@
 <div
   class="
-    my-lib-button-container
-    my-lib-button-container_size_{{ props.size ?? 'm' }}
-    my-lib-button-container_color_{{ props.color ?? 'primary' }}
-    my-lib-button-container_outer-background_{{
+    mm-web-button-container
+    mm-web-button-container_size_{{ props.size ?? 'm' }}
+    mm-web-button-container_color_{{ props.color ?? 'primary' }}
+    mm-web-button-container_outer-background_{{
     props.outerBackground ?? 'grey'
   }}"
-  [class.my-lib-button-container_loading]="isLoading"
-  [class.my-lib-button-container_disabled]="props.disabled"
-  [class.my-lib-button-container_fluid]="props.fluid"
+  [class.mm-web-button-container_loading]="isLoading"
+  [class.mm-web-button-container_disabled]="props.disabled"
+  [class.mm-web-button-container_fluid]="props.fluid"
 >
-  <my-lib-spinner
+  <mm-web-spinner
     *ngIf="isLoading"
-    class="my-lib-button-container__spinner"
+    class="mm-web-button-container__spinner"
     [size]="spinnerSize"
     [type]="effectiveSpinnerType"
-  ></my-lib-spinner>
-  <div class="my-lib-button-container__content">
+  ></mm-web-spinner>
+  <div
+    class="mm-web-button-container__content"
+    (keydown.space)="handleSpaceKeyDown($event)"
+    (keyup.space)="handleSpaceKeyUp($event)"
+    (focusout)="handleFocusOut($event)"
+  >
     <ng-content></ng-content>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import type { SpinnerSize, SpinnerType } from '@my-lib/components/spinner';
+import type { SpinnerSize, SpinnerType } from '@mm-web/components/spinner';
 
 import type { ButtonColor, ButtonSize } from './types';
 import { ButtonInteractivityProps } from './types';

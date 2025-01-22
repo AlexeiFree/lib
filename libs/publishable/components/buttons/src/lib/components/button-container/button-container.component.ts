@@ -3,15 +3,15 @@ import { ChangeDetectionStrategy, Component, ElementRef, Inject, Input, OnInit }
 import { fromEvent, merge, Observable } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
-import { DestroyService } from '@my-lib/common/services';
-import type { SpinnerSize, SpinnerType } from '@my-lib/components/spinner';
+import { DestroyService } from '@mm-web/common/services';
+import type { SpinnerSize, SpinnerType } from '@mm-web/components/spinner';
 
 import { DISABLED_EVENTS } from '../../constants';
 import type { BaseButtonProps } from '../../types';
 import { getSpinnerSize, getSpinnerType, isButtonBlocked, isButtonLoading } from '../../utils';
 
 @Component({
-  selector: 'my-lib-button-container',
+  selector: 'mm-web-button-container',
   templateUrl: './button-container.component.html',
   styleUrls: ['./button-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -50,5 +50,25 @@ export class ButtonContainerComponent implements OnInit {
       .subscribe(event => {
         event.stopImmediatePropagation();
       });
+  }
+
+  public handleSpaceKeyDown({ target }: KeyboardEvent): void {
+    this.activateButton(target);
+  }
+
+  public handleSpaceKeyUp({ target }: KeyboardEvent): void {
+    this.deactivateButton(target);
+  }
+
+  public handleFocusOut({ target }: FocusEvent): void {
+    this.deactivateButton(target);
+  }
+
+  private activateButton(element: HTMLElement): void {
+    element.classList.add('active');
+  }
+
+  private deactivateButton(element: HTMLElement): void {
+    element.classList.remove('active');
   }
 }

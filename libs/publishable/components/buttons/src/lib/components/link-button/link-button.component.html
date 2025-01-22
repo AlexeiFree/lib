@@ -1,14 +1,13 @@
-<my-lib-button-container [props]="props">
+<mm-web-button-container [props]="props">
   <a
-    class="my-lib-link-button"
-    [class.active]="isActive"
+    class="mm-web-link-button"
     [attr.href]="isBlocked ? undefined : props.href"
     [attr.target]="props.target"
     (keydown.space)="handleSpaceKeyDown($event)"
     (keyup.space)="handleSpaceKeyUp($event)"
-    (focusout)="handleFocusOut()"
     (dragstart)="$event.preventDefault()"
+    (keydown.enter)="$event.preventDefault()"
   >
     <ng-content></ng-content>
   </a>
-</my-lib-button-container>
+</mm-web-button-container>

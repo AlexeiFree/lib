@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ButtonBaseDirective } from '../../directives';
 
 @Component({
-  selector: 'my-lib-icon-button',
+  selector: 'mm-web-icon-button',
   templateUrl: './icon-button.component.html',
   styleUrls: ['./icon-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

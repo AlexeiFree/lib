@@ -4,7 +4,7 @@ import { ButtonBaseDirective } from '../../directives';
 import type { ButtonIconPosition } from '../../types';
 
 @Component({
-  selector: 'my-lib-button',
+  selector: 'mm-web-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

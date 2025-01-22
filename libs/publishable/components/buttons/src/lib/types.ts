@@ -1,6 +1,6 @@
-import type { Size } from '@my-lib/common/types';
-import { AnchorElementTarget } from '@my-lib/common/types';
-import type { SpinnerType } from '@my-lib/components/spinner';
+import type { Size } from '@mm-web/common/types';
+import { AnchorElementTarget } from '@mm-web/common/types';
+import type { SpinnerType } from '@mm-web/components/spinner';
 
 import { BUTTON_COLORS, BUTTON_ICON_POSITIONS, BUTTON_OUTER_BACKGROUNDS, BUTTON_TYPES } from './constants';
 
