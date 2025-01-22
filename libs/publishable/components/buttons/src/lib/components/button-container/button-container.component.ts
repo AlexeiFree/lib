@@ -51,20 +51,4 @@ export class ButtonContainerComponent implements OnInit {
         event.stopImmediatePropagation();
       });
   }
-
-  public handleSpaceKeyDown({ target }: KeyboardEvent): void {
-    target.classList.add('active');
-  }
-
-  public handleSpaceKeyUp({ target }: KeyboardEvent): void {
-    target.classList.remove('active');
-
-    if (target.localName === 'a') {
-      target.click();
-    }
-  }
-
-  public handleFocusOut({ target }: FocusEvent): void {
-    target.classList.remove('active');
-  }
 }

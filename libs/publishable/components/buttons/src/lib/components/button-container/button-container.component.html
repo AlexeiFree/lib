@@ -16,12 +16,7 @@
     [size]="spinnerSize"
     [type]="effectiveSpinnerType"
   ></my-lib-spinner>
-  <div
-    class="my-lib-button-container__content"
-    (keydown.space)="handleSpaceKeyDown($event)"
-    (keyup.space)="handleSpaceKeyUp($event)"
-    (focusout)="handleFocusOut($event)"
-  >
+  <div class="my-lib-button-container__content">
     <ng-content></ng-content>
   </div>
 </div>

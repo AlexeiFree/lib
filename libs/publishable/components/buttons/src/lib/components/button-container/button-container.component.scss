@@ -14,7 +14,7 @@ $sizes: xs s m l xl;
 
 .my-lib-button-container {
   $self: &;
-  @include mixins.typing(C1-BOLD-UPP-WIDE);
+  @include mixins.typing('C1 BOLD UPP WIDE');
 
   --padding-x: 10px;
   --padding-y: 10px;
@@ -61,7 +61,7 @@ $sizes: xs s m l xl;
 
   &_size {
     &_xs {
-      @include mixins.typing(C2-BOLD-UPP-WIDE);
+      @include mixins.typing('C2 BOLD UPP WIDE');
 
       --padding-x: 4px;
       --padding-y: 4px;
@@ -73,7 +73,7 @@ $sizes: xs s m l xl;
     }
 
     &_s {
-      @include mixins.typing(C2-BOLD-UPP-WIDE);
+      @include mixins.typing('C2 BOLD UPP WIDE');
 
       --padding-x: 8px;
       --padding-y: 6px;
@@ -85,7 +85,7 @@ $sizes: xs s m l xl;
     }
 
     &_l {
-      @include mixins.typing(C1-BOLD-UPP-WIDE);
+      @include mixins.typing('C1 BOLD UPP WIDE');
 
       --icon-mask-size: #{get-mask-size(l)};
       --padding-x: 14px;
@@ -95,7 +95,7 @@ $sizes: xs s m l xl;
     }
 
     &_xl {
-      @include mixins.typing(P4-BOLD-UPP-WIDE);
+      @include mixins.typing('P4 BOLD UPP WIDE');
 
       --icon-mask-size: #{get-mask-size(xl)};
       --padding-x: 24px;
@@ -103,8 +103,6 @@ $sizes: xs s m l xl;
       --height: 72px;
       --border-radius: 20px;
       --press-scale: 0.9722;
-
-      font: 500 1.25rem / 1.5rem 'Compact', sans-serif;
     }
   }
 

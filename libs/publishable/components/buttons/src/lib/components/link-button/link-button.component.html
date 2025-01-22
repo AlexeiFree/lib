@@ -1,8 +1,13 @@
 <my-lib-button-container [props]="props">
   <a
     class="my-lib-link-button"
+    [class.active]="isActive"
     [attr.href]="isBlocked ? undefined : props.href"
     [attr.target]="props.target"
+    (keydown.space)="handleSpaceKeyDown($event)"
+    (keyup.space)="handleSpaceKeyUp($event)"
+    (focusout)="handleFocusOut()"
+    (dragstart)="$event.preventDefault()"
   >
     <ng-content></ng-content>
   </a>

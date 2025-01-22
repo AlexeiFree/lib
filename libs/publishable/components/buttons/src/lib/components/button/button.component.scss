@@ -1,7 +1,7 @@
 @use '~@my-lib/common/styles/mixins';
 @use '../../styles/mixins' as button-mixins;
 
-:host {
+@include mixins.host('.my-lib-button-host') {
   @include button-mixins.button-host;
 
   --text-padding-x: 8px;

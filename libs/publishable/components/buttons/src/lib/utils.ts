@@ -28,5 +28,7 @@ export const getSpinnerSize = (buttonSize: ButtonSize = 'm'): SpinnerSize => {
   }
 };
 
-export const isButtonBlocked = (props: ButtonInteractivityProps): boolean => Boolean(props.disabled || props.loading);
-export const isButtonLoading = (props: ButtonInteractivityProps): boolean => Boolean(props.loading && !props.disabled);
+export const isButtonBlocked = ({ disabled, loading }: ButtonInteractivityProps): boolean =>
+  Boolean(disabled || loading);
+export const isButtonLoading = ({ disabled, loading }: ButtonInteractivityProps): boolean =>
+  Boolean(loading && !disabled);

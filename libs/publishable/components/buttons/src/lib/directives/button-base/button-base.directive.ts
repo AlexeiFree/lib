@@ -3,12 +3,12 @@ import { Directive, HostBinding, Input } from '@angular/core';
 import type { AnchorElementTarget } from '@my-lib/common/types';
 import type { SpinnerType } from '@my-lib/components/spinner';
 
-import type { ActionButtonProps, ButtonColor, ButtonOuterBackground, ButtonSize, LinkButtonProps } from '../../types';
+import type { ButtonColor, ButtonOuterBackground, ButtonProps, ButtonSize } from '../../types';
 import { ButtonType } from '../../types';
 import { isButtonLoading } from '../../utils';
 
 @Directive()
-export class ButtonBaseDirective implements ActionButtonProps, LinkButtonProps {
+export class ButtonBaseDirective implements ButtonProps {
   /**
    * Размер кнопки.
    * @default 'm'.

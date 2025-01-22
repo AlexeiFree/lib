@@ -12,7 +12,22 @@ import { isButtonBlocked } from '../../utils';
 export class LinkButtonComponent {
   @Input() public props!: LinkButtonProps;
 
+  public isActive = false;
+
   public get isBlocked(): boolean {
     return isButtonBlocked(this.props);
+  }
+
+  public handleSpaceKeyDown(event: KeyboardEvent): void {
+    this.isActive = true;
+    event.preventDefault();
+  }
+
+  public handleSpaceKeyUp({ target }: KeyboardEvent): void {
+    target.click();
+  }
+
+  public handleFocusOut(): void {
+    this.isActive = false;
   }
 }
