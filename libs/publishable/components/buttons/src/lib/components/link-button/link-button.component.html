@@ -1,0 +1,9 @@
+<my-lib-button-container [props]="props">
+  <a
+    class="my-lib-link-button"
+    [attr.href]="isBlocked ? undefined : props.href"
+    [attr.target]="props.target"
+  >
+    <ng-content></ng-content>
+  </a>
+</my-lib-button-container>

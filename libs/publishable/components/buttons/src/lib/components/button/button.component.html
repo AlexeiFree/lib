@@ -1,0 +1,28 @@
+<my-lib-link-button *ngIf="href; else buttonTemplate" [props]="this">
+  <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+</my-lib-link-button>
+
+<ng-template #buttonTemplate>
+  <my-lib-action-button [props]="this">
+    <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+  </my-lib-action-button>
+</ng-template>
+
+<ng-template #contentTemplate>
+  <ng-container *ngIf="!iconPosition || iconPosition === 'leading'">
+    <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
+  </ng-container>
+  <ng-container>
+    <span class="my-lib-button__text">{{ text }}</span>
+  </ng-container>
+  <ng-container *ngIf="iconPosition === 'trailing'">
+    <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
+  </ng-container>
+</ng-template>
+<ng-template #iconTemplate>
+  <div
+    *ngIf="iconSrc"
+    class="my-lib-button__icon"
+    [style.--icon-url]="iconSrc | mmWebCssUrl"
+  ></div>
+</ng-template>

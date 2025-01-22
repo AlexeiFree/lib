@@ -1,0 +1,9 @@
+<my-lib-button-container [props]="props">
+  <button
+    class="my-lib-action-button"
+    [attr.type]="props.type ?? 'button'"
+    [disabled]="isBlocked"
+  >
+    <ng-content></ng-content>
+  </button>
+</my-lib-button-container>
